@@ -21,6 +21,11 @@ public class StackMachine : IStackMachine
         return _stack.First();
     }
 
+    public List<double> GetStack()
+    {
+        return _stack.ToList();
+    }
+
     public void Push(double operand)
     {
         _stack.Push(operand);

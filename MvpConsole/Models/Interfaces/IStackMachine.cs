@@ -31,6 +31,12 @@ public interface IStackMachine
     /// </summary>
     /// <returns>Top of the stack if stack is non empty, null otherwise</returns>
     double? GetTop();
+    
+    /// <summary>
+    /// Get the current stack
+    /// </summary>
+    /// <returns>Current stack</returns>
+    List<double> GetStack();
 
     /// <summary>
     /// Push an operand to the stack
