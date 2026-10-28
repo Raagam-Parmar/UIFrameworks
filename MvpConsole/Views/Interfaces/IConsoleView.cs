@@ -52,6 +52,12 @@ public interface IConsoleView
     string GetInputBuffer();
 
     /// <summary>
+    /// Set the contents of the input buffer
+    /// </summary>
+    /// <param name="contents">Content to set</param>
+    void SetInputBuffer(string contents);
+
+    /// <summary>
     /// Clear the input buffer
     /// </summary>
     void ClearInputBuffer();

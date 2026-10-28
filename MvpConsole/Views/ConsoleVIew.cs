@@ -77,6 +77,11 @@ public class ConsoleView : IConsoleView
         return _inputBuffer;
     }
 
+    public void SetInputBuffer(string contents)
+    {
+        _inputBuffer = contents;
+    }
+
     public void ClearInputBuffer()
     {
         _inputBuffer = "";
