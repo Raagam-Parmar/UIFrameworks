@@ -3,10 +3,12 @@
 // See the LICENSE file in the project root for more information.
 
 using MvcConsole.Models.Interfaces;
+using MvcConsole.Views.Interfaces;
 
 namespace MvcConsole.Views;
 
-public class ConsoleView(ICounter counter)
+/// <inheritdoc/>
+public class ConsoleView(ICounter counter) : IConsoleView
 {
     public void View()
     {
