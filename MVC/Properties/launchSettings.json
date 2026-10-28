@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "MVC (Package)": {
+      "commandName": "MsixPackage"
+    },
+    "MVC (Unpackaged)": {
+      "commandName": "Project"
+    }
+  }
+}
