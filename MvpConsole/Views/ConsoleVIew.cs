@@ -3,7 +3,6 @@
 // See the LICENSE file in the project root for more information.
 
 using MvpConsole.Views.Interfaces;
-using static System.Net.Mime.MediaTypeNames;
 
 namespace MvpConsole.Views;
 
