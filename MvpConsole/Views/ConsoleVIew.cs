@@ -24,6 +24,7 @@ public class ConsoleView : IConsoleView
         Console.WriteLine($"Calculator");
         Console.WriteLine($"  ( [0-9](.[0-9]*)? ) Input a decimal number");
         Console.WriteLine($"  (~) Negate (+) Add (-) Subtract (*) Multiply (/) Divide");
+        Console.WriteLine($"  (Q) Quit");
     }
 
     /// <summary>
@@ -94,40 +95,44 @@ public class ConsoleView : IConsoleView
         {
             ConsoleKeyInfo keyInfo = Console.ReadKey(intercept: true);
 
-            if (keyInfo.Key == ConsoleKey.Oem3)
-            {
-                // ~
-                TildePressed?.Invoke();
-            }
-
-            if (keyInfo.Key == ConsoleKey.OemPlus)
-            {
-                // +
-                PlusPressed?.Invoke();
-            }
-
-            if (keyInfo.Key == ConsoleKey.OemMinus)
-            {
-                // -
-                MinusPressed?.Invoke();
-            }
-
-            if (keyInfo.Key == ConsoleKey.D8)
-            {
-                // *
-                StarPressed?.Invoke();
-            }
-
-            if (keyInfo.Key == ConsoleKey.Oem2)
-            {
-                // *
-                ForwardSlashPressed?.Invoke();
-            }
-
             if (keyInfo.Key == ConsoleKey.Enter)
             {
-                // Enter/Return key
                 ReturnPressed?.Invoke();
+                Redraw();
+                continue;
+            }
+
+            if (keyInfo.Key == ConsoleKey.Q)
+            {
+                break;
+            }
+
+            switch (keyInfo.KeyChar)
+            {
+                case '~':
+                    TildePressed?.Invoke();
+                    break;
+                case '+':
+                    PlusPressed?.Invoke();
+                    break;
+                case '-':
+                    MinusPressed?.Invoke();
+                    break;
+                case '*':
+                    StarPressed?.Invoke();
+                    break;
+                case '/':
+                    ForwardSlashPressed?.Invoke();
+                    break;
+                case '.':
+                    _inputBuffer += ".";
+                    break;
+                default:
+                    if (char.IsDigit(keyInfo.KeyChar))
+                    {
+                        _inputBuffer += keyInfo.KeyChar;
+                    }
+                    break;
             }
 
             Redraw();
