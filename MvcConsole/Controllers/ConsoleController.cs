@@ -32,7 +32,6 @@ public class ConsoleController : IConsoleController
 
             if (keyInfo.Key == ConsoleKey.Q)
             {
-                Console.WriteLine("Quit");
                 break;
             }
 
