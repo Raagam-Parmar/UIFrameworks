@@ -24,6 +24,7 @@ public class ConsoleController : IConsoleController
     public void Run()
     {
         Console.WriteLine("Counter controls: (I) Increment (D) Decrement (Q) Quit");
+        _consoleView.View();
 
         while (true)
         {
@@ -38,14 +39,14 @@ public class ConsoleController : IConsoleController
             if (keyInfo.Key == ConsoleKey.I)
             {
                 _counter.Increment();
-                _consoleView.View();
             }
 
             if (keyInfo.Key == ConsoleKey.D)
             {
                 _counter.Decrement();
-                _consoleView.View();
             }
+
+            _consoleView.View();
         }
     }
 }
