@@ -7,10 +7,10 @@ namespace MvcConsole.Controllers.Interfaces;
 /// <summary>
 /// A console-based controller
 /// </summary>
-public interface ConsoleController
+public interface IConsoleController
 {
     /// <summary>
     /// Run the controller
     /// </summary>
-    void RunAll();
+    void Run();
 }
