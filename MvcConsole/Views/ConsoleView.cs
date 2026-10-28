@@ -12,7 +12,8 @@ public class ConsoleView(ICounter counter) : IConsoleView
 {
     public void View()
     {
-        Console.Clear();
-        Console.WriteLine($"Counter: {counter.GetCount()}");
+        // \r moves the cursor to the start of the line.
+        // \u001b[2K clears the current line to prevent trailing characters if the number shrinks.
+        Console.Write($"\u001b[2K\rCounter: {counter.GetCount()}");
     }
 }

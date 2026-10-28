@@ -10,7 +10,7 @@ namespace MvcConsole.Views.Interfaces;
 public interface IConsoleView
 {
     /// <summary>
-    /// Clear the console and show the new view
+    /// Update the console view
     /// </summary>
     public void View();
 }
