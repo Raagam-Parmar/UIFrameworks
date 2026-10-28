@@ -45,6 +45,17 @@ public interface IStackMachine
     void Push(double operand);
 
     /// <summary>
+    /// Pop an operand from the stack
+    /// </summary>
+    /// <returns>Popped operand</returns>
+    double? Pop();
+
+    /// <summary>
+    /// Clear the stack machine
+    /// </summary>
+    void Clear();
+
+    /// <summary>
     /// Negate the top of the stack
     /// </summary>
     /// <returns>Returns <see cref="NonDivisionError.UnderFlow"/> on underflow, stack is not modified, otherwise,

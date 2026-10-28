@@ -31,6 +31,23 @@ public class StackMachine : IStackMachine
         _stack.Push(operand);
     }
 
+    public double? Pop()
+    {
+        if (_stack.Count == 0)
+        {
+            return null;
+        }
+        else
+        {
+            return _stack.Pop();
+        }
+    }
+
+    public void Clear()
+    {
+        _stack.Clear();
+    }
+
     public NonDivisionError Negate()
     {
         if (_stack.Count < 1)
