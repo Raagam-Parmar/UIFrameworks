@@ -46,6 +46,17 @@ public interface IConsoleView
     void Response(string eventResponse);
 
     /// <summary>
+    /// Get the contents of the input buffer
+    /// </summary>
+    /// <returns>Contents of input buffer</returns>
+    string GetInputBuffer();
+
+    /// <summary>
+    /// Clear the input buffer
+    /// </summary>
+    void ClearInputBuffer();
+
+    /// <summary>
     /// Update the displayed stack 
     /// </summary>
     /// <param name="newStack">New stack to display</param>

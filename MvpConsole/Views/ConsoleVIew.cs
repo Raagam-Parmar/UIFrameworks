@@ -71,6 +71,16 @@ public class ConsoleView : IConsoleView
         _responseBuffer = eventResponse;
     }
 
+    public string GetInputBuffer()
+    {
+        return _inputBuffer;
+    }
+
+    public void ClearInputBuffer()
+    {
+        _inputBuffer = "";
+    }
+
     public void UpdateStack(List<double> newStack)
     {
         _stack = newStack;
