@@ -5,4 +5,5 @@
     <Platform Name="x86" />
   </Configurations>
   <Project Path="MvcConsole/MvcConsole.csproj" Id="eea3248a-f0ff-4ccd-bce0-4a77f9bfd2a1" />
+  <Project Path="MvpConsole/MvpConsole.csproj" Id="e9031704-c98d-4737-9d4a-8453dcc0ca90" />
 </Solution>
