@@ -3,6 +3,7 @@
 // See the LICENSE file in the project root for more information.
 
 using MvpConsole.Views.Interfaces;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace MvpConsole.Views;
 
@@ -105,6 +106,14 @@ public class ConsoleView : IConsoleView
             if (keyInfo.Key == ConsoleKey.Q)
             {
                 break;
+            }
+
+            if (keyInfo.Key == ConsoleKey.Backspace)
+            {
+                if (!string.IsNullOrEmpty(_inputBuffer))
+                {
+                    _inputBuffer = _inputBuffer[..^1];
+                }
             }
 
             switch (keyInfo.KeyChar)
