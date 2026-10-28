@@ -40,6 +40,16 @@ public interface IConsoleView
     event Action ReturnPressed;
 
     /// <summary>
+    /// Key <c>p</c> pressed
+    /// </summary>
+    event Action PPressed;
+
+    /// <summary>
+    /// Key <c>c</c> pressed
+    /// </summary>
+    event Action CPressed;
+
+    /// <summary>
     /// Response of the most recent action, from the presenter
     /// </summary>
     /// <param name="eventResponse">Presenter response</param>

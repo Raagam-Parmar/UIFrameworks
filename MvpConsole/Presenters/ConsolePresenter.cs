@@ -16,6 +16,9 @@ public class ConsolePresenter : IConsolePresenter
     private readonly string _underflowResponse = "Not enough elements";
     private readonly string _zeroDivisionResponse = "Can not divide by zero";
     private readonly string _nanResponse = "Not a number";
+    private readonly string _clearResponse = "Cleared stack";
+    private readonly Func<double, string> _ianResponse = (number) => $"Pushed {number}";
+    private readonly Func<double, string> _popResponse = (number) => $"Poped {number}";
     private readonly Func<string, string> _successResponse = (operation) => $"Executed {operation}";
 
     public ConsolePresenter(IStackMachine machine, IConsoleView consoleView)
@@ -29,6 +32,8 @@ public class ConsolePresenter : IConsolePresenter
         _consoleView.StarPressed += OnStarPressed;
         _consoleView.ForwardSlashPressed += OnForwardSlashPressed;
         _consoleView.ReturnPressed += OnReturnPressed;
+        _consoleView.PPressed += OnPPressed;
+        _consoleView.CPressed += OnCPressed;
     }
 
     private void OnTildePressed()
@@ -129,12 +134,31 @@ public class ConsolePresenter : IConsolePresenter
             _machine.Push(inputNumber);
             _consoleView.UpdateStack(_machine.GetStack());
             _consoleView.ClearInputBuffer();
+            _consoleView.Response(_ianResponse(inputNumber));
         }
         else
         {
             _consoleView.Response(_nanResponse);
             _consoleView.ClearInputBuffer();
         }
+    }
 
+    public void OnPPressed()
+    {
+        double? popped = _machine.Pop();
+        _consoleView.UpdateStack(_machine.GetStack());
+
+        if (popped is double validPopped)
+        {
+            _consoleView.SetInputBuffer($"{validPopped}");
+            _consoleView.Response(_popResponse(validPopped));
+        }
+    }
+
+    public void OnCPressed()
+    {
+        _machine.Clear();
+        _consoleView.UpdateStack(_machine.GetStack());
+        _consoleView.Response(_clearResponse);
     }
 }

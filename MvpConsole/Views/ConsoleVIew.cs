@@ -18,12 +18,15 @@ public class ConsoleView : IConsoleView
     public event Action? ForwardSlashPressed;
     public event Action? TildePressed;
     public event Action? ReturnPressed;
+    public event Action? PPressed;
+    public event Action? CPressed;
 
     private void DrawHeading()
     {
         Console.WriteLine($"Calculator");
         Console.WriteLine($"  ( [0-9](.[0-9]*)? ) Input a decimal number");
         Console.WriteLine($"  (~) Negate (+) Add (-) Subtract (*) Multiply (/) Divide");
+        Console.WriteLine($"  (P) Pop-Edit (C) Clear");
         Console.WriteLine($"  (Q) Quit");
     }
 
@@ -110,6 +113,16 @@ public class ConsoleView : IConsoleView
             if (keyInfo.Key == ConsoleKey.Q)
             {
                 break;
+            }
+
+            if (keyInfo.Key == ConsoleKey.P)
+            {
+                PPressed?.Invoke();
+            }
+
+            if (keyInfo.Key == ConsoleKey.C)
+            {
+                CPressed?.Invoke();
             }
 
             if (keyInfo.Key == ConsoleKey.Backspace)
